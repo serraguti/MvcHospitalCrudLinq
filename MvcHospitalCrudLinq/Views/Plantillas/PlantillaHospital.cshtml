@@ -1,0 +1,44 @@
+﻿@model ModelPlantillas
+
+<h1>Plantilla Hospital Lambda</h1> 
+<a asp-controller="Hospitales"
+   asp-action="Index">
+    Volver a hospitales
+</a>
+
+<ul class="list-group">
+    <li class="list-group-item">
+        Personas: @Model.Personas
+    </li>
+    <li class="list-group-item">
+        Suma salarial: @Model.SumaSalarial
+    </li>
+    <li class="list-group-item">
+        Media salarial: @Model.MediaSalarial
+    </li>
+</ul>
+
+
+<table class="table table-primary">
+    <thead>
+        <tr>
+            <th>APELLIDO</th>
+            <th>FUNCION</th>
+            <th>TURNO</th>
+            <th>SALARIO</th>
+            <th>HOSPITAL</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Plantilla plan in Model.Plantillas)
+            {
+                <tr>
+                    <td>@plan.Apellido</td>
+                    <td>@plan.Funcion</td>
+                    <td>@plan.Turno</td>
+                    <td>@plan.Salario</td>
+                    <td>@plan.IdHospital</td>
+                </tr>
+            }
+    </tbody>
+</table>

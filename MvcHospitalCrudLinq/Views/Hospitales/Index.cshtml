@@ -29,12 +29,19 @@
             <td>@item.Telefono</td>
             <td>@item.Camas</td>
             <td>
+                <a asp-controller="Plantillas"
+                   asp-action="PlantillaHospital"
+                   asp-route-idhospital="@item.IdHospital"
+                   class="btn btn-info">
+                    Plantilla 
+                </a>
+                |
                 @Html.ActionLink("Edit", "Edit"
                , new { idhospital=item.IdHospital }) |
                 @Html.ActionLink("Details", "Details"
                , new {  idhospital = item.IdHospital }) |
                 @Html.ActionLink("Delete", "Delete"
-               , new { idhospital=item.IdHospital})
+               , new { idhospital=item.IdHospital}) 
             </td>
         </tr>
 }
