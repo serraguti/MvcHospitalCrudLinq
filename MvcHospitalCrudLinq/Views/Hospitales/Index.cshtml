@@ -1,0 +1,42 @@
+﻿@model List<Hospital>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID HOSPITAL</th>
+            <th>NOMBRE</th>
+            <th>DIRECCION</th>
+            <th>TELEFONO</th>
+            <th>CAMAS</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>@item.IdHospital</td>
+            <td>@item.Nombre</td>
+            <td>@item.Direccion</td>
+            <td>@item.Telefono</td>
+            <td>@item.Camas</td>
+            <td>
+                @Html.ActionLink("Edit", "Edit"
+               , new { idhospital=item.IdHospital }) |
+                @Html.ActionLink("Details", "Details"
+               , new {  idhospital = item.IdHospital }) |
+                @Html.ActionLink("Delete", "Delete"
+               , new { idhospital=item.IdHospital})
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

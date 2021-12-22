@@ -18,7 +18,7 @@ namespace MvcHospitalCrudLinq.Data
 
         public HospitalesContext()
         {
-            this.cadenaconexion = @"";
+            this.cadenaconexion = @"Data Source=LOCALHOST;Initial Catalog=HOSPITAL;Persist Security Info=True;User ID=SA;Password=MCSD2021";
             this.cn = new SqlConnection(cadenaconexion);
             this.com = new SqlCommand();
             this.com.Connection = this.cn;
@@ -89,6 +89,7 @@ namespace MvcHospitalCrudLinq.Data
             int results = this.com.ExecuteNonQuery();
             this.cn.Close();
             this.com.Parameters.Clear();
+            this.RefreshData();
             return results;
         }
 
@@ -109,6 +110,7 @@ namespace MvcHospitalCrudLinq.Data
             int results = this.com.ExecuteNonQuery();
             this.cn.Close();
             this.com.Parameters.Clear();
+            this.RefreshData();
             return results;
         }
 
@@ -122,6 +124,7 @@ namespace MvcHospitalCrudLinq.Data
             int results = this.com.ExecuteNonQuery();
             this.cn.Close();
             this.com.Parameters.Clear();
+            this.RefreshData();
             return results;
         }
     }
